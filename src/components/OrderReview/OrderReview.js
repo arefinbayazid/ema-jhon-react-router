@@ -1,4 +1,5 @@
 import React from 'react';
+import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/UserProduct/useCart';
 import useProduct from '../Hooks/UserProduct/useProduct';
@@ -10,7 +11,7 @@ const OrderReview = () => {
     const removeItem = id =>{
         const newCart = cart.filter(item => item.key !== id)
         setCart(newCart)
-    }
+        removeFromDb(id)    }
     return (
         <div className="shop-container">
             <div className="product-container">
